@@ -12,13 +12,13 @@ namespace ConsoleApp1
         public int Y { get; set; }
 
         Random random;
-        public int boardWidth;
-        public int boardHeight;
+        int boardWidth;
+        int boardHeight;
 
-        public Wall(int x, int boardWidth, int boardHeigth)
+        public Wall(int x, int boardwidth, int boardheigth)
         {
-            this.boardWidth = boardWidth;
-            this.boardHeight = boardHeight;
+            boardHeight = boardheigth;
+            boardWidth = boardwidth;
             random = new Random();
             X = x;
             Y = random.Next(3, boardHeight - 2);
