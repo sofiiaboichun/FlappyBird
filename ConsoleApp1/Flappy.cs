@@ -14,6 +14,11 @@ namespace ConsoleApp1
 
         Board board;
         Bird bird;
+        Wall wall1;
+        Wall wall2;
+        Wall wall3;
+
+        int score;
 
         public Flappy (int width, int height)
         {
@@ -25,6 +30,10 @@ namespace ConsoleApp1
         {
             board = new Board(Width, Height);
             bird = new Bird(Height, Height/2);
+            wall1 = new Wall(35, Width, Height);
+            wall2 = new Wall(60, Width, Height);
+            wall3 = new Wall(85, Width, Height);
+            score = 0;
         }
 
         public void Run()
@@ -34,12 +43,25 @@ namespace ConsoleApp1
                 Console.Clear();
                 Setup();
                 board.Write();
+
+                Console.SetCursorPosition((Width / 2) - 4, Height + 2);
+                Console.Write("SCORE : ");
+
                 bird.Write();
+
+                wall1.Move();
+                wall2.Move();
+                wall3.Move();
 
                 Console.ReadKey(true);
                 while (bird.Y < Height && bird.Y > 1)
                 {
                     bird.Logic();
+                    wall1.Move();
+                    wall2.Move();
+                    wall3.Move();
+                    Console.SetCursorPosition((Width / 2) + 3, Height + 2);
+                    Console.Write(score);
                     Thread.Sleep(300);
                 }
             }
