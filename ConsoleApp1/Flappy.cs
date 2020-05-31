@@ -24,7 +24,7 @@ namespace ConsoleApp1
         void Setup()
         {
             board = new Board(Width, Height);
-            bird = new Bird(Height, Height / 2);
+            bird = new Bird(Height, Height/2);
         }
 
         public void Run()
@@ -37,7 +37,7 @@ namespace ConsoleApp1
                 bird.Write();
 
                 Console.ReadKey(true);
-                while (bird.Y < Height && bird.Y > 0)
+                while (bird.Y < Height && bird.Y > 1)
                 {
                     bird.Logic();
                     Thread.Sleep(300);
