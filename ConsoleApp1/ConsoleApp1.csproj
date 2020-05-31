@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bird.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Flappy.cs" />
     <Compile Include="Program.cs" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace ConsoleApp1
 {
@@ -13,6 +13,7 @@ namespace ConsoleApp1
         int Width { set; get; }
 
         Board board;
+        Bird bird;
 
         public Flappy (int width, int height)
         {
@@ -23,13 +24,25 @@ namespace ConsoleApp1
         void Setup()
         {
             board = new Board(Width, Height);
+            bird = new Bird(Height, Height / 2);
         }
 
         public void Run()
         {
-            Console.Clear();
-            Setup();
-            board.Write();
+            while (true)
+            {
+                Console.Clear();
+                Setup();
+                board.Write();
+                bird.Write();
+
+                Console.ReadKey(true);
+                while (bird.Y < Height && bird.Y > 0)
+                {
+                    bird.Logic();
+                    Thread.Sleep(300);
+                }
+            }
         }
 
     }
