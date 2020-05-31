@@ -56,6 +56,18 @@ namespace ConsoleApp1
                 Console.ReadKey(true);
                 while (bird.Y < Height && bird.Y > 1)
                 {
+                    if (   ((bird.X >= wall1.X - 2 && bird.X <= wall1.X + 2) && (bird.Y <= wall1.Y - 1 || bird.Y >= wall1.Y + 2))
+                        || ((bird.X >= wall2.X - 2 && bird.X <= wall2.X + 2) && (bird.Y <= wall2.Y - 1 || bird.Y >= wall2.Y + 2))
+                        || ((bird.X >= wall3.X - 2 && bird.X <= wall3.X + 2) && (bird.Y <= wall3.Y - 1 || bird.Y >= wall3.Y + 2))
+                       )
+                    {
+                        Console.Beep();
+                        break;
+                    }
+                    if ( wall1.X == bird.X || wall2.X == bird.X || wall3.X == bird.X )
+                    {
+                        score++;
+                    }
                     bird.Logic();
                     wall1.Move();
                     wall2.Move();
