@@ -79,10 +79,10 @@ namespace ConsoleApp1
                     Console.Write(score);
                     if (score == 0 && (bird.X >= wall1.X - 2 && bird.X <= wall1.X + 2) && (bird.Y <= wall1.Y - 1 || bird.Y >= wall1.Y + 2))
                     {
-                        Console.SetCursorPosition(0, Height + 5);
+                        Console.SetCursorPosition((Width / 2) - 10, Height + 5);
                         Console.Write("Your score for now is ZERO! Try again!");
                     }
-                    mes.NewMessage(score, Height);
+                    mes.NewMessage(score, Height, Width);
                     
                     Thread.Sleep(300);
                 }
