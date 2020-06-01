@@ -74,6 +74,16 @@ namespace ConsoleApp1
                     wall3.Move();
                     Console.SetCursorPosition((Width / 2) + 3, Height + 2);
                     Console.Write(score);
+                    if (score == 0 && (bird.X >= wall1.X - 2 && bird.X <= wall1.X + 2) && (bird.Y <= wall1.Y - 1 || bird.Y >= wall1.Y + 2))
+                    {
+                        Console.SetCursorPosition(0, Height + 5);
+                        Console.Write("Your score for now is ZERO! Try again!");
+                    }
+                    if (score >= 1)
+                    {
+                        Console.SetCursorPosition(0, Height + 5);
+                        Console.Write("Great! Good job!");
+                    }
                     Thread.Sleep(300);
                 }
             }
