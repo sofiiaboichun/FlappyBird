@@ -18,6 +18,8 @@ namespace ConsoleApp1
         Wall wall2;
         Wall wall3;
 
+        Message mes;
+
         int score;
 
         public Flappy (int width, int height)
@@ -34,6 +36,7 @@ namespace ConsoleApp1
             wall2 = new Wall(60, Width, Height);
             wall3 = new Wall(85, Width, Height);
             score = 0;
+            mes = new Message();
         }
 
         public void Run()
@@ -79,11 +82,8 @@ namespace ConsoleApp1
                         Console.SetCursorPosition(0, Height + 5);
                         Console.Write("Your score for now is ZERO! Try again!");
                     }
-                    if (score >= 1)
-                    {
-                        Console.SetCursorPosition(0, Height + 5);
-                        Console.Write("Great! Good job!");
-                    }
+                    mes.NewMessage(score, Height);
+                    
                     Thread.Sleep(300);
                 }
             }
